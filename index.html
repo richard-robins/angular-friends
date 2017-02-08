@@ -18,10 +18,13 @@
         <!-- STEP 5: Get rid of the one above when you uncomment the below-->
 
         <input class="form-control" placeholder="Search Name" ng-model="friendFilter.name">
-        <input class="form-control" placeholder="Search Location" ng-model="friendFilter.current_location.name">
+        <input class="form-control" placeholder="Search Location" ng-model="friendFilter.current_location.$">
 
 
-        <select class="input-medium" ng-model="sortProp">
+        <select class="input-medium" ng-model="sortProp" ng-options="option.value as option.option for option in nameOptions"></select>
+        <select class="input-medium" ng-model="sortDirection" ng-options="sortOption.sortValue as sortOption.sortOption for sortOption in sortOptions"></select>
+
+        <!-- <select class="input-medium" ng-model="sortProp">
           <option value="name">Name</option>
           <option value="#Friends">#Friends</option>
           <option value="City">City</option>
@@ -32,7 +35,7 @@
         <select class="input-medium" ng-model="sortDirection">
           <option value="+">Descending</option>
           <option value="-">Ascending</option>
-        </select>
+        </select> -->
 
       </div>
     </form>
@@ -44,7 +47,7 @@
         <h3>{{friend.name}}</h3>
 
         <div class="location">
-          Location: {{friend.current_location.city}}
+          Location: {{friend.current_location.city}}, {{friend.current_location.state}}, {{friend.current_location.country}},
         </div>
 
         <div class="status">

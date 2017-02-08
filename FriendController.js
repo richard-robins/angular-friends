@@ -4,6 +4,49 @@ angular.module("friendLi").controller('FriendController', function($scope){
     $scope.sortProp;
     $scope.sortDirection;
 
+    $scope.nameOptions = [
+      {
+        option: 'Name',
+        value: 'name',
+    },
+
+    {
+      option: '#Friend',
+      value: 'friend_count',
+    },
+
+    {
+      option: 'City',
+      value: 'current_location.city',
+    },
+
+    {
+      option: 'State',
+      value: 'current_location.state',
+    },
+
+    {
+      option: 'Country',
+      value: 'current_location.country',
+    },
+
+  ];
+
+
+  $scope.sortOptions = [
+    {
+      sortOption: 'Descending',
+      sortValue: '+',
+    },
+
+    {
+      sortOption: 'Ascending',
+      sortValue: '-',
+    }
+  ]
+
+
+
 
     $scope.friends = [
       {
